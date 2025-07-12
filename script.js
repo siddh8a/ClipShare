@@ -68,7 +68,7 @@ class ClipboardSharing {
     }
 
     generateCode() {
-        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+        const characters = '0123456789';
         let code = '';
         
         for (let i = 0; i < 4; i++) {
