@@ -350,3 +350,37 @@ window.addEventListener('beforeunload', () => {
         window.clipboardApp.listeners.forEach(listener => listener.off());
     }
 });
+(function () {
+  
+  const footer = document.createElement("div");
+  footer.id = "clipshare-footer";
+  footer.style.cssText = `
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    text-align: center;
+    font-size: 12px;
+    color: #ccc;
+    padding: 8px 0;
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999;
+    font-family: sans-serif;
+  `;
+  footer.innerHTML = "&copy; Developer : S!D";
+
+  
+  if (!document.getElementById("clipshare-footer")) {
+    document.body.appendChild(footer);
+  }
+
+  
+  const observer = new MutationObserver(() => {
+    if (!document.getElementById("clipshare-footer")) {
+      document.body.appendChild(footer.cloneNode(true));
+    }
+  });
+  observer.observe(document.body, { childList: true });
+})();
